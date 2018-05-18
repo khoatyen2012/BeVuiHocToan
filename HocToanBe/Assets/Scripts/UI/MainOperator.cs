@@ -23,6 +23,7 @@ public class MainOperator : MonoBehaviour {
 	public void ShowNextData(int pNext)
 	{
 		PopupController.instance.HideMainOperator ();
+		PopupController.instance.ShowMainNumber ();
 	}
 	// Use this for initialization
 	void Start () {

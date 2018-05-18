@@ -23,6 +23,19 @@ public class PopupController : MonoBehaviour {
 
 	public MainOperator mainOperator;
 
+	public MainNumber mainNumber;
+
+	public void ShowMainNumber()
+	{
+
+		mainNumber.transform.position = new Vector3(mainNumber.transform.position.x, showY, mainNumber.transform.position.z);
+	}
+
+	public void HideMainNumber()
+	{
+		mainNumber.transform.position = new Vector3(mainNumber.transform.position.x, hideY, mainNumber.transform.position.z);
+	}
+
 	public void ShowMainOperator()
 	{
 		
