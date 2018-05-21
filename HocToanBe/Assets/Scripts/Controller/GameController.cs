@@ -17,6 +17,13 @@ public class GameController : MonoBehaviour {
 	}
 	#endregion
 
+    void Awake()
+    {
+        Application.targetFrameRate = 30;
+        QualitySettings.vSyncCount = -1;
+    }
+
+
 	// Use this for initialization
 	void Start () {
 	

@@ -4,15 +4,36 @@ using System.Collections;
 public class InGame : MonoBehaviour {
 
 
-	public int number = 1;
+    public Transform C1;
+    public Transform C2;
+    public Transform C3;
+    public Transform O1;
+    public Transform O2;
 
+	public int number = 1;
 	public Transform d1;
 
-	void Awake()
-	{
-		Application.targetFrameRate = 30;
-		QualitySettings.vSyncCount = -1;
-	}
+
+    public void setData()
+    {
+        C1.localScale = new Vector3(0, 0, 1);
+        C2.localScale = new Vector3(0, 0, 1);
+        C3.localScale = new Vector3(0, 0, 1);
+        O1.localScale = new Vector3(0, 0, 1);
+        O2.localScale = new Vector3(0, 0, 1);
+
+        StartCoroutine(WaitTimeC1(1f,C1));
+        StartCoroutine(WaitTimeC1(2f, O1));
+        StartCoroutine(WaitTimeC1(3f, C2));
+        StartCoroutine(WaitTimeC1(4f, O2));
+        StartCoroutine(WaitTimeC1(5f, C3));
+    }
+
+    IEnumerator WaitTimeC1(float time,Transform pC)
+    {
+        yield return new WaitForSeconds(time);
+        pC.GetComponent<Zoom>().setZoom();
+    }
 
 	// Use this for initialization
 	void Start () {

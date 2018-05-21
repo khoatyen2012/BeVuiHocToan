@@ -25,6 +25,19 @@ public class PopupController : MonoBehaviour {
 
 	public MainNumber mainNumber;
 
+    public InGame inGame;
+
+    public void ShowInGame()
+    {
+        inGame.setData();
+        inGame.transform.position = new Vector3(inGame.transform.position.x, showY, inGame.transform.position.z);
+    }
+
+    public void HideInGame()
+    {
+        inGame.transform.position = new Vector3(inGame.transform.position.x, hideY, inGame.transform.position.z);
+    }
+
 	public void ShowMainNumber()
 	{
 

@@ -18,7 +18,8 @@ public class MainNumber : MonoBehaviour {
 	}
 	public void btnNext_OnClick()
 	{
-
+        PopupController.instance.HideMainNumber();
+        PopupController.instance.ShowInGame();
 	}
 
 
