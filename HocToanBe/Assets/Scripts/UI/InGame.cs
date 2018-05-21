@@ -11,14 +11,14 @@ public class InGame : MonoBehaviour {
     public Transform O2;
 	public MoveUp DD;
 
-	public int number = 1;
+	
 	public Transform d1;
 	public Transform d2;
 	public Transform d3;
 	Transform dd;
 	Vector3 startPostionD;
 
-
+    public float moveSpeed;
 
 
 
@@ -87,11 +87,27 @@ public class InGame : MonoBehaviour {
 		}else if (Input.touchCount != 0 && Input.GetTouch(0).phase 
 			== TouchPhase.Ended)
 		{
-			number++;
-			dd.position = startPostionD;
+            Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+            Vector3 vecterH = new Vector3(startPostionD.x - touchDeltaPosition.x, startPostionD.y - touchDeltaPosition.y,0);
 
-			dd = null;
+
+            StartCoroutine(ieMoveD(vecterH));
+
+			
 		
 		}
 	}
+
+    IEnumerator ieMoveD(Vector3 pVecter)
+    {
+        while (dd.position.y > startPostionD.y)
+        {
+            dd.position += pVecter
+                * moveSpeed
+                * Time.deltaTime;
+            yield return 0;
+        }
+        dd.position = startPostionD; ;
+        dd = null;
+    }
 }
