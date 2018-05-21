@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Controller\GameController.cs" />
      <Compile Include="Assets\Scripts\Controller\PopupController.cs" />
+     <Compile Include="Assets\Scripts\Move\MoveUp.cs" />
      <Compile Include="Assets\Scripts\Move\Zoom.cs" />
      <Compile Include="Assets\Scripts\UI\InGame.cs" />
      <Compile Include="Assets\Scripts\UI\MainNumber.cs" />
