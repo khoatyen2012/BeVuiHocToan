@@ -88,26 +88,28 @@ public class InGame : MonoBehaviour {
 			== TouchPhase.Ended)
 		{
             Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-            Vector3 vecterH = new Vector3(startPostionD.x - touchDeltaPosition.x, startPostionD.y - touchDeltaPosition.y,0);
+		
 
-
-            StartCoroutine(ieMoveD(vecterH));
+			dd.position = startPostionD; ;
+			//StartCoroutine(ieMoveD(touchDeltaPosition));
 
 			
 		
 		}
 	}
 
-    IEnumerator ieMoveD(Vector3 pVecter)
+    IEnumerator ieMoveD(Vector2 pVecter)
     {
+		Vector3 vecterH = new Vector3(startPostionD.x - pVecter.x, startPostionD.y - pVecter.y,0f);
+		//vecterH=vecterH.normalized;
         while (dd.position.y > startPostionD.y)
         {
-            dd.position += pVecter
+			dd.position += vecterH
                 * moveSpeed
                 * Time.deltaTime;
             yield return 0;
         }
-        dd.position = startPostionD; ;
+       // dd.position = startPostionD; ;
         dd = null;
     }
 }
