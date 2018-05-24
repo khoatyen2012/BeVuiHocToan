@@ -31,6 +31,7 @@ public class MoveUp : MonoBehaviour {
 			yield return 0;
 		}
 		this.transform.localPosition = new Vector3 (this.transform.localPosition.x, 0, this.transform.localPosition.z);
+		GameController.instance.currentState = GameController.State.INGAME;
 	}
 
 	// Use this for initialization

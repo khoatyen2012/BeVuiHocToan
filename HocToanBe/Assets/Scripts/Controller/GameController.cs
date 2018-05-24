@@ -23,6 +23,17 @@ public class GameController : MonoBehaviour {
         QualitySettings.vSyncCount = -1;
     }
 
+	public enum State
+	{
+		START,
+		LOADZOOM,
+		END,
+		INGAME,
+		INTRUE,
+		GAMEOVER
+	}
+	public State currentState;
+
 
 	// Use this for initialization
 	void Start () {
