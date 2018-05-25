@@ -29,7 +29,6 @@ public class GameController : MonoBehaviour {
 		LOADZOOM,
 		END,
 		INGAME,
-		INTRUE,
 		GAMEOVER
 	}
 	public State currentState;

@@ -82,6 +82,7 @@ public class InGame : MonoBehaviour {
 					dd = d3;
 				} else {
 					dd = null;
+
 				}
 
 				dd.position = new Vector3 (dd.position.x,dd.position.y,dd.position.z-5);
@@ -102,11 +103,13 @@ public class InGame : MonoBehaviour {
 			} else if (Input.touchCount != 0 && Input.GetTouch (0).phase
 			         == TouchPhase.Ended) {
 			if (GameController.instance.currentState == GameController.State.INGAME) {
-				GameController.instance.currentState = GameController.State.END;
-				Vector3 positionTouch = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-				Vector3 vecH = new Vector3 (startPostionD.x - positionTouch.x, startPostionD.y - positionTouch.y, 0f).normalized;
-				//dd.position = startPostionD; ;
-				StartCoroutine (ieMoveD (vecH));
+				if (dd != null) {
+					GameController.instance.currentState = GameController.State.END;
+					Vector3 positionTouch = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+					Vector3 vecH = new Vector3 (startPostionD.x - positionTouch.x, startPostionD.y - positionTouch.y, 0f).normalized;
+					//dd.position = startPostionD; ;
+					StartCoroutine (ieMoveD (vecH));
+				}
 			}
 		
 
