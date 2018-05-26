@@ -42,6 +42,7 @@ public class MainNumber : MonoBehaviour {
 
 	public void setNumber(int pType)
 	{
+		GameController.instance.mNumber = pType;
 		btnMuoi.transform.GetChild (0).gameObject.SetActive (false);
 		btnHaiMuoi.transform.GetChild (0).gameObject.SetActive (false);
 		btnNamMuoi.transform.GetChild (0).gameObject.SetActive (false);

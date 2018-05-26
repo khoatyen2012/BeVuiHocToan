@@ -24,6 +24,31 @@ public class InGame : MonoBehaviour {
     public float moveSpeed;
 
 
+	public void setDetail(Transform pTra,int pGiaTri)
+	{
+		if (pGiaTri < 10) {
+			pTra.GetChild (0).gameObject.SetActive (true);
+			pTra.GetChild (1).gameObject.SetActive (false);
+
+			switch(pGiaTri)
+			{
+			case 0:
+				pTra.GetChild (0).GetComponent<tk2dSprite> ().SetSprite ("ngayle_0");
+				break;
+			default:
+				pTra.GetChild (0).GetComponent<tk2dSprite> ().SetSprite ("ngayle_"+pGiaTri);
+				break;
+			}
+		
+		} else {
+
+			pTra.GetChild (0).gameObject.SetActive (false);
+			pTra.GetChild (1).gameObject.SetActive (true);
+
+			pTra.GetChild (1).GetChild (0).GetComponent<tk2dSprite> ().SetSprite ("ngayle_"+(""+pGiaTri).Substring(0,1));
+			pTra.GetChild (1).GetChild (1).GetComponent<tk2dSprite> ().SetSprite ("ngayle_"+(""+pGiaTri).Substring(1,1));
+		}
+	}
 
     public void setData()
     {

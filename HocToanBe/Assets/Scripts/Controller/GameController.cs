@@ -23,6 +23,9 @@ public class GameController : MonoBehaviour {
         QualitySettings.vSyncCount = -1;
     }
 
+	public int mNumber=0;
+	public int mOperator=0;
+
 	public enum State
 	{
 		START,
