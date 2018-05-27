@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
 
 public class InGame : MonoBehaviour {
 
@@ -22,43 +24,114 @@ public class InGame : MonoBehaviour {
 	Vector3 startPostionD3;
 
     public float moveSpeed;
+    public bool checkOperator = true;
+
+    public int mB1 = 0;
+    public int mB2 = 0;
+    public int mKq = 0;
 
 
-	public void setDetail(Transform pTra,int pGiaTri)
-	{
-		if (pGiaTri < 10) {
-			pTra.GetChild (0).gameObject.SetActive (true);
-			pTra.GetChild (1).gameObject.SetActive (false);
-
-			switch(pGiaTri)
-			{
-			case 0:
-				pTra.GetChild (0).GetComponent<tk2dSprite> ().SetSprite ("ngayle_0");
-				break;
-			default:
-				pTra.GetChild (0).GetComponent<tk2dSprite> ().SetSprite ("ngayle_"+pGiaTri);
-				break;
-			}
-		
-		} else {
-
-			pTra.GetChild (0).gameObject.SetActive (false);
-			pTra.GetChild (1).gameObject.SetActive (true);
-
-			pTra.GetChild (1).GetChild (0).GetComponent<tk2dSprite> ().SetSprite ("ngayle_"+(""+pGiaTri).Substring(0,1));
-			pTra.GetChild (1).GetChild (1).GetComponent<tk2dSprite> ().SetSprite ("ngayle_"+(""+pGiaTri).Substring(1,1));
-		}
-	}
+    List<int> lstTam;
+    List<int> tmg;
 
     public void setData()
     {
+
         C1.localScale = new Vector3(0, 0, 1);
         C2.localScale = new Vector3(0, 0, 1);
         C3.localScale = new Vector3(0, 0, 1);
         O1.localScale = new Vector3(0, 0, 1);
         O2.localScale = new Vector3(0, 0, 1);
 
-		GameController.instance.currentState = GameController.State.LOADZOOM;
+        GameController.instance.currentState = GameController.State.LOADZOOM;
+
+
+      
+        if (GameController.instance.mOperator == 0)
+        {
+            checkOperator = true;
+        }
+        else if (GameController.instance.mOperator == 1)
+        {
+            checkOperator = false;
+        }
+        else
+        {
+            int chon = UnityEngine.Random.Range(0, 2);
+            if (chon == 0)
+            {
+                checkOperator = true;
+            }
+            else
+            {
+                checkOperator = false;
+            }
+        }
+
+        if (checkOperator)
+        {
+            mB1 = UnityEngine.Random.Range(1, GameController.instance.mNumber);
+            mB2 = UnityEngine.Random.Range(0, GameController.instance.mNumber - mB1);
+            mKq = mB1 + mB2;
+            O1.GetComponent<tk2dSprite>().SetSprite("cong");
+        }
+        else
+        {
+            mB1 = UnityEngine.Random.Range(2, GameController.instance.mNumber);
+            mB2 = UnityEngine.Random.Range(1, mB1);
+            mKq = mB1 - mB2;
+            O1.GetComponent<tk2dSprite>().SetSprite("tru");
+        }
+
+        C1.GetComponent<Cloud>().setDetail(mB1);
+        C2.GetComponent<Cloud>().setDetail(mB2);
+
+
+        lstTam = new List<int>();
+        lstTam.Add(mKq);
+        if (mKq <= 1)
+        {
+            lstTam.Add(0);
+            lstTam.Add(2);
+        }
+        else if (mKq >= 98)
+        {
+            lstTam.Add(97);
+            lstTam.Add(96);
+        }
+        else
+        {
+            tmg = new List<int>();
+            tmg.Add(mKq - 1);
+            tmg.Add(mKq - 2);
+            tmg.Add(mKq + 1);
+            tmg.Add(mKq +2);
+
+            int chon = UnityEngine.Random.Range(0, tmg.Count);
+            lstTam.Add(tmg[chon]);
+            tmg.RemoveAt(chon);
+
+            chon = UnityEngine.Random.Range(0, tmg.Count);
+            lstTam.Add(tmg[chon]);
+            tmg.RemoveAt(chon);
+
+            tmg.Clear();
+
+        }
+
+        int chonk = UnityEngine.Random.Range(0, lstTam.Count);
+        d1.GetComponent<Cloud>().setDetail(lstTam[chonk]);
+        lstTam.RemoveAt(chonk);
+
+        chonk = UnityEngine.Random.Range(0, lstTam.Count);
+        d2.GetComponent<Cloud>().setDetail(lstTam[chonk]);
+        lstTam.RemoveAt(chonk);
+
+        d3.GetComponent<Cloud>().setDetail(lstTam[0]);
+
+
+
+       
 
         StartCoroutine(WaitTimeC1(0.3f,C1));
         StartCoroutine(WaitTimeC1(1f, O1));
