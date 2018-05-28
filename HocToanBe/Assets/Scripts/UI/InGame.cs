@@ -19,9 +19,9 @@ public class InGame : MonoBehaviour {
 	public Transform d3;
 	Transform dd;
 	Vector3 startPostionD;
-	Vector3 startPostionD1;
-	Vector3 startPostionD2;
-	Vector3 startPostionD3;
+	//Vector3 startPostionD1;
+	//Vector3 startPostionD2;
+	//Vector3 startPostionD3;
 
     public float moveSpeed;
     public bool checkOperator = true;
@@ -33,6 +33,8 @@ public class InGame : MonoBehaviour {
 
     List<int> lstTam;
     List<int> tmg;
+
+
 
     public void setData()
     {
@@ -157,9 +159,9 @@ public class InGame : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		startPostionD1 = d1.position;
-		startPostionD2 = d2.position;
-		startPostionD3 = d3.position;
+		//startPostionD1 = d1.position;
+		//startPostionD2 = d2.position;
+		//startPostionD3 = d3.position;
 
 	}
 
@@ -203,10 +205,21 @@ public class InGame : MonoBehaviour {
 			if (GameController.instance.currentState == GameController.State.INGAME) {
 				if (dd != null) {
 					GameController.instance.currentState = GameController.State.END;
-					Vector3 positionTouch = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-					Vector3 vecH = new Vector3 (startPostionD.x - positionTouch.x, startPostionD.y - positionTouch.y, 0f).normalized;
-					//dd.position = startPostionD; ;
-					StartCoroutine (ieMoveD (vecH));
+
+					float kc = Mathf.Sqrt (Mathf.Pow(C3.position.x-dd.position.x,2)+Mathf.Pow(C3.position.y-dd.position.y,2));
+
+				
+
+					if (kc < C3.GetComponent<Collider> ().bounds.size.x / 3) {
+						dd.position = C3.position;
+					} else {
+						Vector3 positionTouch = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+						Vector3 vecH = new Vector3 (startPostionD.x - positionTouch.x, startPostionD.y - positionTouch.y, 0f).normalized;
+						//dd.position = startPostionD; ;
+						StartCoroutine (ieMoveD (vecH));
+					}
+
+				
 				}
 			}
 		
