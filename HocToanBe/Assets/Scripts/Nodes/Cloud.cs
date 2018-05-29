@@ -4,6 +4,7 @@ using System.Collections;
 public class Cloud : MonoBehaviour {
 
     public int mGiaTri = 0;
+	public bool checkState=true;
 
     public void setDetail(int pGiaTri)
     {

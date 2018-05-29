@@ -175,11 +175,17 @@ public class InGame : MonoBehaviour {
 			if (GameController.instance.currentState == GameController.State.INGAME) {
 				Vector3 positionTouch = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 				if (Mathf.Abs (positionTouch.x - d1.position.x) < (d1.GetComponent<Collider> ().bounds.size.x / 2) && Mathf.Abs (positionTouch.y - d1.position.y) < (d1.GetComponent<Collider> ().bounds.size.y / 2)) {
-					dd = d1;
+					if (d1.GetComponent<Cloud> ().checkState) {
+						dd = d1;
+					}
 				} else if (Mathf.Abs (positionTouch.x - d2.position.x) < (d2.GetComponent<Collider> ().bounds.size.x / 2) && Mathf.Abs (positionTouch.y - d2.position.y) < (d2.GetComponent<Collider> ().bounds.size.y / 2)) {
-					dd = d2;
+					if (d2.GetComponent<Cloud> ().checkState) {
+						dd = d2;
+					}
 				} else if (Mathf.Abs (positionTouch.x - d3.position.x) < (d3.GetComponent<Collider> ().bounds.size.x / 2) && Mathf.Abs (positionTouch.y - d3.position.y) < (d3.GetComponent<Collider> ().bounds.size.y / 2)) {
-					dd = d3;
+					if (d3.GetComponent<Cloud> ().checkState) {
+						dd = d3;
+					}
 				} else {
 					dd = null;
 
@@ -212,11 +218,18 @@ public class InGame : MonoBehaviour {
 
 					if (kc < C3.GetComponent<Collider> ().bounds.size.x / 3) {
 						dd.position = C3.position;
+						if (dd.GetComponent<Cloud> ().mGiaTri == mKq) {
+							
+						} else {
+							dd.GetChild (2).gameObject.SetActive (true);
+							StartCoroutine(WaitTimeMove(0.5f,C3.position));
+
+							//Khoa khong cho di chuyen
+							dd.GetComponent<Cloud> ().checkState = false;
+						}
 					} else {
 						Vector3 positionTouch = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-						Vector3 vecH = new Vector3 (startPostionD.x - positionTouch.x, startPostionD.y - positionTouch.y, 0f).normalized;
-						//dd.position = startPostionD; ;
-						StartCoroutine (ieMoveD (vecH));
+						StartCoroutine(WaitTimeMove(0f,positionTouch));
 					}
 
 				
@@ -228,6 +241,14 @@ public class InGame : MonoBehaviour {
 		
 
 		}
+	}
+
+	IEnumerator WaitTimeMove(float time,Vector3 positionTouch )
+	{
+		yield return new WaitForSeconds (time);
+		Vector3 vecH = new Vector3 (startPostionD.x - positionTouch.x, startPostionD.y - positionTouch.y, 0f).normalized;
+		//dd.position = startPostionD; ;
+		StartCoroutine (ieMoveD (vecH));
 	}
 
 	IEnumerator ieMoveD(Vector3 pVecter)
@@ -242,7 +263,7 @@ public class InGame : MonoBehaviour {
 			yield return 0;
 		}
 		dd.position = new Vector3 (startPostionD.x,startPostionD.y,startPostionD.z+5);
-	
+		dd = null;
 		GameController.instance.currentState = GameController.State.INGAME;
 	}
 }
