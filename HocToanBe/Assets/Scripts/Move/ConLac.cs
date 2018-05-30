@@ -20,7 +20,7 @@ public class ConLac : MonoBehaviour {
 		{
 			this.transform.RotateAround(tamquay, Vector3.back, speedVangCan * Time.deltaTime);
 			// Debug.Log("llll:" + this.transform.GetChild(0).eulerAngles.z);
-			if (this.transform.eulerAngles.z <= 310f && this.transform.eulerAngles.z > 40f)
+			if (this.transform.eulerAngles.z <= 340f && this.transform.eulerAngles.z > 20f)
 			{
 
 				currentState = State.RIGHT;
@@ -32,7 +32,7 @@ public class ConLac : MonoBehaviour {
 		{
 			this.transform.RotateAround(tamquay, Vector3.forward, speedVangCan * Time.deltaTime);
 			// Debug.Log("rrrr:" + this.transform.GetChild(0).eulerAngles.z);
-			if (this.transform.eulerAngles.z >= 40f && this.transform.eulerAngles.z < 310f)
+			if (this.transform.eulerAngles.z >= 20f && this.transform.eulerAngles.z < 340f)
 			{
 
 				currentState = State.LEFT;
@@ -49,7 +49,7 @@ public class ConLac : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		tamquay = new Vector3 (this.transform.position.x, this.transform.position.y + 100, this.transform.position.z);
+		tamquay = new Vector3 (this.transform.position.x, this.transform.position.y + 50, this.transform.position.z);
 	}
 	
 	// Update is called once per frame
