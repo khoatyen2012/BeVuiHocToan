@@ -22,6 +22,7 @@ public class InGame : MonoBehaviour {
 	//Vector3 startPostionD1;
 	//Vector3 startPostionD2;
 	//Vector3 startPostionD3;
+	public int checkKQ=0;
 
     public float moveSpeed;
     public bool checkOperator = true;
@@ -177,18 +178,21 @@ public class InGame : MonoBehaviour {
 				if (Mathf.Abs (positionTouch.x - d1.position.x) < (d1.GetComponent<Collider> ().bounds.size.x / 2) && Mathf.Abs (positionTouch.y - d1.position.y) < (d1.GetComponent<Collider> ().bounds.size.y / 2)) {
 					if (d1.GetComponent<Cloud> ().checkState) {
 						dd = d1;
+						checkKQ = 1;
 					}
 				} else if (Mathf.Abs (positionTouch.x - d2.position.x) < (d2.GetComponent<Collider> ().bounds.size.x / 2) && Mathf.Abs (positionTouch.y - d2.position.y) < (d2.GetComponent<Collider> ().bounds.size.y / 2)) {
 					if (d2.GetComponent<Cloud> ().checkState) {
 						dd = d2;
+						checkKQ = 2;
 					}
 				} else if (Mathf.Abs (positionTouch.x - d3.position.x) < (d3.GetComponent<Collider> ().bounds.size.x / 2) && Mathf.Abs (positionTouch.y - d3.position.y) < (d3.GetComponent<Collider> ().bounds.size.y / 2)) {
 					if (d3.GetComponent<Cloud> ().checkState) {
 						dd = d3;
+						checkKQ = 3;
 					}
 				} else {
 					dd = null;
-
+					checkKQ = 0;
 				}
 
 				dd.position = new Vector3 (dd.position.x,dd.position.y,dd.position.z-5);
@@ -219,7 +223,8 @@ public class InGame : MonoBehaviour {
 					if (kc < C3.GetComponent<Collider> ().bounds.size.x / 3) {
 						dd.position = C3.position;
 						if (dd.GetComponent<Cloud> ().mGiaTri == mKq) {
-							
+							setZoomSub ();
+
 						} else {
 							dd.GetChild (2).gameObject.SetActive (true);
 							StartCoroutine(WaitTimeMove(0.5f,C3.position));
@@ -240,6 +245,21 @@ public class InGame : MonoBehaviour {
 			
 		
 
+		}
+	}
+
+	public void setZoomSub()
+	{
+		if (checkKQ == 1) {
+			d2.GetComponent<ZoomSub> ().setZoom ();
+			d3.GetComponent<ZoomSub> ().setZoom ();
+		} else if (checkKQ == 2) {
+			d1.GetComponent<ZoomSub> ().setZoom ();
+			d3.GetComponent<ZoomSub> ().setZoom ();
+			
+		}else if (checkKQ == 3) {
+			d1.GetComponent<ZoomSub> ().setZoom ();
+			d2.GetComponent<ZoomSub> ().setZoom ();			
 		}
 	}
 

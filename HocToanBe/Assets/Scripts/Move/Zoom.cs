@@ -33,12 +33,12 @@ public class Zoom : MonoBehaviour {
         {
             if (this.transform.localScale.x < startX || this.transform.localScale.y < startY)
             {
-                this.transform.localScale = new Vector3(this.transform.localScale.x + distance, this.transform.localScale.y + distance, 1);
+				this.transform.localScale = new Vector3(this.transform.localScale.x + distance, this.transform.localScale.y + distance,  this.transform.localScale.z);
             }
             else
             {
                 curentState = State.IDLE;
-                this.transform.localScale = new Vector3(startX, startY, 1);
+				this.transform.localScale = new Vector3(startX, startY,  this.transform.localScale.z);
             }
         }
 	
