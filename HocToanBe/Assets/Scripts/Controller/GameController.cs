@@ -25,6 +25,9 @@ public class GameController : MonoBehaviour {
 
 	public int mNumber=10;
 	public int mOperator=0;
+	public MoveGitfBox gitfBox;
+
+
 
 	public enum State
 	{
@@ -36,6 +39,11 @@ public class GameController : MonoBehaviour {
 	}
 	public State currentState;
 
+
+	public void setMoveGitfBox()
+	{
+		gitfBox.setMove ();
+	}
 
 	// Use this for initialization
 	void Start () {

@@ -20,7 +20,7 @@ public class ConLac : MonoBehaviour {
 		{
 			this.transform.RotateAround(tamquay, Vector3.back, speedVangCan * Time.deltaTime);
 			// Debug.Log("llll:" + this.transform.GetChild(0).eulerAngles.z);
-			if (this.transform.eulerAngles.z <= 340f && this.transform.eulerAngles.z > 20f)
+			if (this.transform.eulerAngles.z <= 350f && this.transform.eulerAngles.z > 20f)
 			{
 
 				currentState = State.RIGHT;
@@ -32,7 +32,7 @@ public class ConLac : MonoBehaviour {
 		{
 			this.transform.RotateAround(tamquay, Vector3.forward, speedVangCan * Time.deltaTime);
 			// Debug.Log("rrrr:" + this.transform.GetChild(0).eulerAngles.z);
-			if (this.transform.eulerAngles.z >= 20f && this.transform.eulerAngles.z < 340f)
+			if (this.transform.eulerAngles.z >= 20f && this.transform.eulerAngles.z < 350f)
 			{
 
 				currentState = State.LEFT;

@@ -1,13 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Move\ConLac.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\InGame.cs">
     <Files>
-      <File FileName="Assets\Scripts\Controller\GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\InGame.cs" Line="226" Column="22" />
+      <File FileName="Assets\Scripts\Controller\GameController.cs" Line="45" Column="22" />
+      <File FileName="Assets\Scripts\UI\InGame.cs" Line="53" Column="46" />
       <File FileName="Assets\Scripts\Nodes\Cloud.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Move\Zoom.cs" Line="41" Column="62" />
-      <File FileName="Assets\Scripts\Move\ZoomSub.cs" Line="24" Column="57" />
-      <File FileName="Assets\Scripts\Move\ConLac.cs" Line="52" Column="82" />
+      <File FileName="Assets\Scripts\Move\MoveGitfBox.cs" Line="15" Column="3" />
+      <File FileName="Assets\Scripts\Move\ConLac.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Move\ZoomSub.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Move\MoveUp.cs" Line="14" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

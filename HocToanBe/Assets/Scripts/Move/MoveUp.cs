@@ -9,6 +9,7 @@ public class MoveUp : MonoBehaviour {
 
 
 	public Vector3 startPosition;
+	public float stopY;
 
 	public void setStartPosition()
 	{
@@ -23,14 +24,14 @@ public class MoveUp : MonoBehaviour {
 
 	IEnumerator ieMoveUp()
 	{
-		while (this.transform.localPosition.y < 0)
+		while (this.transform.localPosition.y < stopY)
 		{
 			this.transform.localPosition += Vector3.up
 				* moveSpeed
 				* Time.deltaTime;
 			yield return 0;
 		}
-		this.transform.localPosition = new Vector3 (this.transform.localPosition.x, 0, this.transform.localPosition.z);
+		this.transform.localPosition = new Vector3 (this.transform.localPosition.x, stopY, this.transform.localPosition.z);
 		GameController.instance.currentState = GameController.State.INGAME;
 	}
 

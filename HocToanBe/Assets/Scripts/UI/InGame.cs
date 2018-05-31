@@ -19,9 +19,9 @@ public class InGame : MonoBehaviour {
 	public Transform d3;
 	Transform dd;
 	Vector3 startPostionD;
-	//Vector3 startPostionD1;
-	//Vector3 startPostionD2;
-	//Vector3 startPostionD3;
+	Vector3 startPostionD1;
+	Vector3 startPostionD2;
+	Vector3 startPostionD3;
 	public int checkKQ=0;
 
     public float moveSpeed;
@@ -35,6 +35,15 @@ public class InGame : MonoBehaviour {
     List<int> lstTam;
     List<int> tmg;
 
+	public tk2dUIItem btnContinute;
+
+	public void btnContinute_OnClick()
+	{
+		resetCloud ();
+		GameController.instance.currentState = GameController.State.START;
+		btnContinute.gameObject.SetActive (false);
+		setData ();
+	}
 
 
     public void setData()
@@ -160,9 +169,8 @@ public class InGame : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		//startPostionD1 = d1.position;
-		//startPostionD2 = d2.position;
-		//startPostionD3 = d3.position;
+
+		btnContinute.OnClick+=btnContinute_OnClick;
 
 	}
 
@@ -195,6 +203,10 @@ public class InGame : MonoBehaviour {
 					checkKQ = 0;
 				}
 
+				startPostionD1 = d1.position;
+				startPostionD2 = d2.position;
+				startPostionD3 = d3.position;
+
 				dd.position = new Vector3 (dd.position.x,dd.position.y,dd.position.z-5);
 				startPostionD = dd.position;
 			}
@@ -224,6 +236,8 @@ public class InGame : MonoBehaviour {
 						dd.position = C3.position;
 						if (dd.GetComponent<Cloud> ().mGiaTri == mKq) {
 							setZoomSub ();
+							StartCoroutine (WaitTimeMoveGiftBox (0.5f));
+							StartCoroutine (WaitTimeShowContinute (2.5f));
 
 						} else {
 							dd.GetChild (2).gameObject.SetActive (true);
@@ -246,6 +260,42 @@ public class InGame : MonoBehaviour {
 		
 
 		}
+	}
+
+	void resetCloud()
+	{
+		//zoom ve vi tri ban dau
+		d1.GetComponent<ZoomSub> ().setDefault ();
+		d2.GetComponent<ZoomSub> ().setDefault ();
+		d3.GetComponent<ZoomSub> ().setDefault ();
+
+		//an cac nut huy di
+		d1.GetChild (2).gameObject.SetActive (false);
+		d2.GetChild (2).gameObject.SetActive (false);
+		d3.GetChild (2).gameObject.SetActive (false);
+
+		//bat lai che do move
+		d1.GetComponent<Cloud> ().checkState = true;
+		d2.GetComponent<Cloud> ().checkState = true;
+		d3.GetComponent<Cloud> ().checkState = true;
+
+		//set ve vi tri ban dau item
+		d1.position = startPostionD1;
+		d2.position = startPostionD2;
+		d3.position = startPostionD3;
+		DD.setStartPosition ();
+	}
+
+	IEnumerator WaitTimeShowContinute(float time)
+	{
+		yield return new WaitForSeconds (time);
+		btnContinute.gameObject.SetActive (true);
+	}
+
+	IEnumerator WaitTimeMoveGiftBox(float time)
+	{
+		yield return new WaitForSeconds (time);
+		GameController.instance.setMoveGitfBox ();
 	}
 
 	public void setZoomSub()
