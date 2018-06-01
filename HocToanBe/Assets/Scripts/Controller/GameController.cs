@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour {
 	public int mNumber=10;
 	public int mOperator=0;
 	public MoveGitfBox gitfBox;
-
+	public int mLevel=0;
 
 
 	public enum State
@@ -47,7 +47,7 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		mLevel=0;
 	}
 	
 	// Update is called once per frame

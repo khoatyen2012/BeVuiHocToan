@@ -36,6 +36,7 @@ public class InGame : MonoBehaviour {
     List<int> tmg;
 
 	public tk2dUIItem btnContinute;
+	public tk2dTextMesh txtLevel;
 
 	public void btnContinute_OnClick()
 	{
@@ -48,6 +49,12 @@ public class InGame : MonoBehaviour {
 
     public void setData()
     {
+		GameController.instance.mLevel++;
+		if (GameController.instance.mLevel < 10) {
+			txtLevel.text = "0" + GameController.instance.mLevel;
+		} else {
+			txtLevel.text = "" + GameController.instance.mLevel;
+		}
 
         C1.localScale = new Vector3(0, 0, 1);
         C2.localScale = new Vector3(0, 0, 1);
@@ -151,6 +158,8 @@ public class InGame : MonoBehaviour {
         StartCoroutine(WaitTimeC1(2f, O2));
         StartCoroutine(WaitTimeC1(3f, C3));
 		StartCoroutine(WaitTimeDD(4.2f));
+
+
     }
 
     IEnumerator WaitTimeC1(float time,Transform pC)

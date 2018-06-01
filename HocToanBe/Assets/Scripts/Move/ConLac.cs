@@ -49,7 +49,7 @@ public class ConLac : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		tamquay = new Vector3 (this.transform.position.x, this.transform.position.y + 50, this.transform.position.z);
+		tamquay = new Vector3 (this.transform.position.x, this.transform.position.y + 30, this.transform.position.z);
 	}
 	
 	// Update is called once per frame
