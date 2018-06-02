@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Move\Zoom.cs" />
      <Compile Include="Assets\Scripts\Move\ZoomSub.cs" />
      <Compile Include="Assets\Scripts\Nodes\Cloud.cs" />
+     <Compile Include="Assets\Scripts\UI\GameOver.cs" />
      <Compile Include="Assets\Scripts\UI\InGame.cs" />
      <Compile Include="Assets\Scripts\UI\MainNumber.cs" />
      <Compile Include="Assets\Scripts\UI\MainOperator.cs" />

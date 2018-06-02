@@ -298,7 +298,12 @@ public class InGame : MonoBehaviour {
 	IEnumerator WaitTimeShowContinute(float time)
 	{
 		yield return new WaitForSeconds (time);
-		btnContinute.gameObject.SetActive (true);
+		if (GameController.instance.mLevel > 5) {
+			resetCloud ();
+			GameController.instance.currentState = GameController.State.GAMEOVER;
+		} else {
+			btnContinute.gameObject.SetActive (true);
+		}
 	}
 
 	IEnumerator WaitTimeMoveGiftBox(float time)
