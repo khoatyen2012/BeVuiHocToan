@@ -38,13 +38,6 @@ public class InGame : MonoBehaviour {
 	public tk2dUIItem btnContinute;
 	public tk2dTextMesh txtLevel;
 
-	public void btnContinute_OnClick()
-	{
-		resetCloud ();
-		GameController.instance.currentState = GameController.State.START;
-		btnContinute.gameObject.SetActive (false);
-		setData ();
-	}
 
 
     public void setData()
@@ -295,12 +288,23 @@ public class InGame : MonoBehaviour {
 		DD.setStartPosition ();
 	}
 
+    public void btnContinute_OnClick()
+    {
+        resetCloud();
+        GameController.instance.currentState = GameController.State.START;
+        btnContinute.gameObject.SetActive(false);
+        setData();
+    }
+
+
 	IEnumerator WaitTimeShowContinute(float time)
 	{
 		yield return new WaitForSeconds (time);
 		if (GameController.instance.mLevel > 5) {
 			resetCloud ();
 			GameController.instance.currentState = GameController.State.GAMEOVER;
+            PopupController.instance.HideInGame();
+            PopupController.instance.ShowGameOver();
 		} else {
 			btnContinute.gameObject.SetActive (true);
 		}

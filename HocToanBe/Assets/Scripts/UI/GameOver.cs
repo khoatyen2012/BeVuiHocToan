@@ -10,9 +10,17 @@ public class GameOver : MonoBehaviour {
 
 	public void btnHome_OnClick()
 	{
+        GameController.instance.mLevel = 0;
+        PopupController.instance.HideGameOver();
+        PopupController.instance.ShowMainOperator();
 	}
 	public void btnResul_OnClick()
 	{
+        GameController.instance.mLevel = 0;
+        PopupController.instance.HideGameOver();
+        PopupController.instance.ShowInGame();
+      
+
 	}
 
 	public void setData()
