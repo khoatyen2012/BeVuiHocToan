@@ -30,12 +30,14 @@ public class PopupController : MonoBehaviour {
 
 	public void ShowGameOver()
 	{
-		gameover.setData();
+		
 		gameover.transform.position = new Vector3(gameover.transform.position.x, showY, gameover.transform.position.z);
+		gameover.setZoomAdd ();
 	}
 
 	public void HideGameOver()
 	{
+		gameover.setZoomSub ();
 		gameover.transform.position = new Vector3(gameover.transform.position.x, hideY, gameover.transform.position.z);
 	}
 
@@ -56,10 +58,12 @@ public class PopupController : MonoBehaviour {
 	{
 
 		mainNumber.transform.position = new Vector3(mainNumber.transform.position.x, showY, mainNumber.transform.position.z);
+		mainNumber.setZoomAdd ();
 	}
 
 	public void HideMainNumber()
 	{
+		mainNumber.setZoomSub ();
 		mainNumber.transform.position = new Vector3(mainNumber.transform.position.x, hideY, mainNumber.transform.position.z);
 	}
 

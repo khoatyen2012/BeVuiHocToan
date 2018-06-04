@@ -14,6 +14,9 @@ public class MoveGitfBox : MonoBehaviour {
 	{
 		this.gameObject.SetActive (false);
 		this.transform.localPosition = startPosition;
+		foreach (Transform child in this.transform) {
+			child.GetComponent<ConLac> ().setStartPosition ();
+		}
 	}
 
 

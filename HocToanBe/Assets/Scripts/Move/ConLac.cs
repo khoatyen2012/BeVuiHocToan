@@ -13,6 +13,7 @@ public class ConLac : MonoBehaviour {
 	public State currentState;
 	public float speedVangCan;
 	public Vector3 tamquay;
+	public Vector3 starPovis;
 
 	void MoveLeftRight()
 	{
@@ -50,6 +51,12 @@ public class ConLac : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		tamquay = new Vector3 (this.transform.position.x, this.transform.position.y + 30, this.transform.position.z);
+		starPovis = this.transform.localPosition;
+	}
+
+	public void setStartPosition()
+	{
+		this.transform.localPosition = starPovis;
 	}
 	
 	// Update is called once per frame

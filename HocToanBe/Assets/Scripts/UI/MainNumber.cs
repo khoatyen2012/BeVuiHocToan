@@ -10,6 +10,27 @@ public class MainNumber : MonoBehaviour {
 	public tk2dUIItem btnTram;
 	public tk2dUIItem btnClose;
 	public tk2dUIItem btnNext;
+	public float distance;
+
+	public enum State
+	{
+		IDLE,
+		ZOOM
+
+	}
+
+	public State curentState;
+
+	public void setZoomAdd()
+	{
+		curentState = State.ZOOM;
+	}
+
+	public void setZoomSub()
+	{
+		this.transform.localScale = new Vector3(0f, 1f,  this.transform.localScale.z);
+		curentState = State.IDLE;
+	}
 
 	public void btnClose_OnClick()
 	{
@@ -79,6 +100,17 @@ public class MainNumber : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (curentState == State.ZOOM)
+		{
+			if (this.transform.localScale.x < 1f)
+			{
+				this.transform.localScale = new Vector3(this.transform.localScale.x + distance, this.transform.localScale.y,  this.transform.localScale.z);
+			}
+			else
+			{
+				curentState = State.IDLE;
+				this.transform.localScale = new Vector3(1f, 1f,  this.transform.localScale.z);
+			}
+		}
 	}
 }
