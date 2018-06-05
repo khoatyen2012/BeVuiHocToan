@@ -1,12 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Move\MoveGitfBox.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Move\ZoomMove.cs">
     <Files>
-      <File FileName="Assets\Scripts\Move\MoveGitfBox.cs" Line="11" Column="21" />
-      <File FileName="Assets\Scripts\Controller\GameController.cs" Line="45" Column="18" />
-      <File FileName="Assets\Scripts\UI\InGame.cs" Line="316" Column="41" />
-      <File FileName="Assets\Scripts\Controller\PopupController.cs" Line="40" Column="26" />
-      <File FileName="Assets\Scripts\UI\MainNumber.cs" Line="103" Column="3" />
+      <File FileName="Assets\Scripts\Move\ZoomMove.cs" Line="45" Column="28" />
+      <File FileName="Assets\Scripts\Move\Zoom.cs" Line="34" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

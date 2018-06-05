@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Move\MoveGitfBox.cs" />
      <Compile Include="Assets\Scripts\Move\MoveUp.cs" />
      <Compile Include="Assets\Scripts\Move\Zoom.cs" />
+     <Compile Include="Assets\Scripts\Move\ZoomMove.cs" />
      <Compile Include="Assets\Scripts\Move\ZoomSub.cs" />
      <Compile Include="Assets\Scripts\Nodes\Cloud.cs" />
      <Compile Include="Assets\Scripts\UI\GameOver.cs" />
