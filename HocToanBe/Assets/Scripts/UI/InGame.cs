@@ -82,8 +82,58 @@ public class InGame : MonoBehaviour {
 
         if (checkOperator)
         {
-            mB1 = UnityEngine.Random.Range(1, GameController.instance.mNumber);
-            mB2 = UnityEngine.Random.Range(0, GameController.instance.mNumber - mB1);
+          
+			switch (GameController.instance.mNumber) {
+			case 10:
+				if (GameController.instance.mLevel < 6) {
+					mB1 = UnityEngine.Random.Range(1, 6);
+					mB2 = UnityEngine.Random.Range(0, 7 - mB1);
+				} else if (GameController.instance.mLevel < 11) {
+					mB1 = UnityEngine.Random.Range(1, 7);
+					mB2 = UnityEngine.Random.Range(0, 8 - mB1);
+				} else {
+					mB1 = UnityEngine.Random.Range(2, GameController.instance.mNumber);
+					mB2 = UnityEngine.Random.Range(0, GameController.instance.mNumber - mB1);
+				}
+				break;
+			case 20:
+				if (GameController.instance.mLevel < 6) {
+					mB1 = UnityEngine.Random.Range(1, 10);
+					mB2 = UnityEngine.Random.Range(0, 11 - mB1);
+				} else if (GameController.instance.mLevel < 11) {
+					mB1 = UnityEngine.Random.Range(1, 15);
+					mB2 = UnityEngine.Random.Range(0, 16 - mB1);
+				} else {
+					mB1 = UnityEngine.Random.Range(10, GameController.instance.mNumber);
+					mB2 = UnityEngine.Random.Range(0, GameController.instance.mNumber - mB1);
+				}
+				break;
+			case 50:
+				if (GameController.instance.mLevel < 6) {
+					mB1 = UnityEngine.Random.Range(1, 15);
+					mB2 = UnityEngine.Random.Range(0, 16 - mB1);
+				} else if (GameController.instance.mLevel < 11) {
+					mB1 = UnityEngine.Random.Range(1, 25);
+					mB2 = UnityEngine.Random.Range(0, 26 - mB1);
+				} else {
+					mB1 = UnityEngine.Random.Range(10, GameController.instance.mNumber);
+					mB2 = UnityEngine.Random.Range(0, GameController.instance.mNumber - mB1);
+				}
+				break;
+			default:
+				if (GameController.instance.mLevel < 6) {
+					mB1 = UnityEngine.Random.Range(1, 50);
+					mB2 = UnityEngine.Random.Range(0, 51 - mB1);
+				} else if (GameController.instance.mLevel < 11) {
+					mB1 = UnityEngine.Random.Range(25, 50);
+					mB2 = UnityEngine.Random.Range(0, 51 - mB1);
+				} else {
+					mB1 = UnityEngine.Random.Range(50, GameController.instance.mNumber);
+					mB2 = UnityEngine.Random.Range(0, GameController.instance.mNumber - mB1);
+				}
+				break;
+			}
+
             mKq = mB1 + mB2;
             O1.GetComponent<tk2dSprite>().SetSprite("cong");
         }
@@ -300,7 +350,7 @@ public class InGame : MonoBehaviour {
 	IEnumerator WaitTimeShowContinute(float time)
 	{
 		yield return new WaitForSeconds (time);
-		if (GameController.instance.mLevel > 5) {
+		if (GameController.instance.mLevel > 14) {
 			resetCloud ();
 			GameController.instance.currentState = GameController.State.GAMEOVER;
             PopupController.instance.HideInGame();
