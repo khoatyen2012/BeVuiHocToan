@@ -38,10 +38,11 @@ public class InGame : MonoBehaviour {
 	public tk2dUIItem btnContinute;
 	public tk2dTextMesh txtLevel;
 
-
+	public int mSub=0;
 
     public void setData()
     {
+		mSub = 0;
 		GameController.instance.mLevel++;
 		if (GameController.instance.mLevel < 10) {
 			txtLevel.text = "0" + GameController.instance.mLevel;
@@ -287,6 +288,7 @@ public class InGame : MonoBehaviour {
 					if (kc < C3.GetComponent<Collider> ().bounds.size.x / 3) {
 						dd.position = C3.position;
 						if (dd.GetComponent<Cloud> ().mGiaTri == mKq) {
+
 							setZoomSub ();
 							StartCoroutine (WaitTimeMoveGiftBox (0.5f));
 							StartCoroutine (WaitTimeShowContinute (2.5f));
@@ -297,6 +299,8 @@ public class InGame : MonoBehaviour {
 
 							//Khoa khong cho di chuyen
 							dd.GetComponent<Cloud> ().checkState = false;
+							mSub++;
+							GameController.instance.mStar -= mSub;
 						}
 					} else {
 						Vector3 positionTouch = Camera.main.ScreenToWorldPoint (Input.mousePosition);

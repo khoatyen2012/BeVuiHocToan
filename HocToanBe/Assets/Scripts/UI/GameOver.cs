@@ -6,7 +6,7 @@ public class GameOver : MonoBehaviour {
 
 	public tk2dUIItem btnHome;
 	public tk2dUIItem btnResul;
-	public tk2dSprite start;
+	public tk2dSprite star;
 
 	public float distance;
 
@@ -22,6 +22,13 @@ public class GameOver : MonoBehaviour {
 	public void setZoomAdd()
 	{
 		curentState = State.ZOOM;
+		if (GameController.instance.mStar > 30) {
+			star.SetSprite ("saoba");
+		} else if (GameController.instance.mStar > 15) {
+			star.SetSprite ("saohai");
+		} else {
+			star.SetSprite ("saomot");
+		}
 	}
 
 	public void setZoomSub()
@@ -33,12 +40,14 @@ public class GameOver : MonoBehaviour {
 	public void btnHome_OnClick()
 	{
         GameController.instance.mLevel = 0;
+		GameController.instance.mStar = 45;
         PopupController.instance.HideGameOver();
         PopupController.instance.ShowMainOperator();
 	}
 	public void btnResul_OnClick()
 	{
         GameController.instance.mLevel = 0;
+		GameController.instance.mStar = 45;
         PopupController.instance.HideGameOver();
         PopupController.instance.ShowInGame();
       

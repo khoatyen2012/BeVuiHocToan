@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour {
 	public int mOperator=0;
 	public MoveGitfBox gitfBox;
 	public int mLevel=0;
+	public int mStar=45;
 
 
 	public enum State
