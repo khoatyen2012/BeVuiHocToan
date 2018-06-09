@@ -37,6 +37,7 @@ public class InGame : MonoBehaviour {
 
 	public tk2dUIItem btnContinute;
 	public tk2dTextMesh txtLevel;
+	public tk2dTextMesh txtTest;
 
 	public int mSub=0;
 
@@ -236,6 +237,7 @@ public class InGame : MonoBehaviour {
 			   == TouchPhase.Began) {
 			if (GameController.instance.currentState == GameController.State.INGAME) {
 				Vector3 positionTouch = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+
 				if (Mathf.Abs (positionTouch.x - d1.position.x) < (d1.GetComponent<Collider> ().bounds.size.x / 2) && Mathf.Abs (positionTouch.y - d1.position.y) < (d1.GetComponent<Collider> ().bounds.size.y / 2)) {
 					if (d1.GetComponent<Cloud> ().checkState) {
 						dd = d1;
@@ -388,21 +390,25 @@ public class InGame : MonoBehaviour {
 	IEnumerator WaitTimeMove(float time,Vector3 positionTouch )
 	{
 		yield return new WaitForSeconds (time);
+		// tinh khoang cach cua y de doi chieu
+		float ttt=Mathf.Abs(positionTouch.y-startPostionD.y);
+		txtTest.text = "" + ttt;
 		Vector3 vecH = new Vector3 (startPostionD.x - positionTouch.x, startPostionD.y - positionTouch.y, 0f).normalized;
 		//dd.position = startPostionD; ;
-		StartCoroutine (ieMoveD (vecH));
+		StartCoroutine (ieMoveD (vecH,ttt));
 	}
 
-	IEnumerator ieMoveD(Vector3 pVecter)
+	IEnumerator ieMoveD(Vector3 pVecter,float pKC)
 	{
 
 		//vecterH=vecterH.normalized;
-		while (dd.position.y > startPostionD.y)
-		{
-			dd.position += pVecter
+		if (pKC > 30) {
+			while (dd.position.y > startPostionD.y) {
+				dd.position += pVecter
 				* moveSpeed
 				* Time.deltaTime;
-			yield return 0;
+				yield return 0;
+			}
 		}
 		dd.position = new Vector3 (startPostionD.x,startPostionD.y,startPostionD.z+5);
 		dd = null;

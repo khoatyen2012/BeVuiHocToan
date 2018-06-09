@@ -36,6 +36,7 @@ public class GameController : MonoBehaviour {
 		LOADZOOM,
 		END,
 		INGAME,
+		WAIT,
 		GAMEOVER
 	}
 	public State currentState;
