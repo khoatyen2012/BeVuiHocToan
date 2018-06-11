@@ -37,7 +37,7 @@ public class InGame : MonoBehaviour {
 
 	public tk2dUIItem btnContinute;
 	public tk2dTextMesh txtLevel;
-	public tk2dTextMesh txtTest;
+
 
 	public int mSub=0;
 
@@ -392,7 +392,7 @@ public class InGame : MonoBehaviour {
 		yield return new WaitForSeconds (time);
 		// tinh khoang cach cua y de doi chieu
 		float ttt=Mathf.Abs(positionTouch.y-startPostionD.y);
-		txtTest.text = "" + ttt;
+	
 		Vector3 vecH = new Vector3 (startPostionD.x - positionTouch.x, startPostionD.y - positionTouch.y, 0f).normalized;
 		//dd.position = startPostionD; ;
 		StartCoroutine (ieMoveD (vecH,ttt));
