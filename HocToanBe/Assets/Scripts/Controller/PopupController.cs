@@ -46,7 +46,7 @@ public class PopupController : MonoBehaviour {
     {
        
         inGame.transform.position = new Vector3(inGame.transform.position.x, showY, inGame.transform.position.z);
-        inGame.setData();
+		inGame.setBGdata();
     }
 
     public void HideInGame()

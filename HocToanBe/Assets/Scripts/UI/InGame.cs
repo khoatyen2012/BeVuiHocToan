@@ -40,6 +40,20 @@ public class InGame : MonoBehaviour {
 
 
 	public int mSub=0;
+	public tk2dSprite mBG;
+
+	public void setBGdata()
+	{
+		setData ();
+		int tChon = UnityEngine.Random.Range (0, 4);
+		if (tChon == 0) {
+			mBG.SetSprite ("bgcaydua");
+		} else if (tChon == 1) {
+			mBG.SetSprite ("bgdongco");
+		} else {
+			mBG.SetSprite ("bgdonghoa");
+		}
+	}
 
     public void setData()
     {

@@ -4,9 +4,9 @@
     <Files>
       <File FileName="Assets\Scripts\Move\ZoomMove.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Move\Zoom.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\InGame.cs" Line="395" Column="2" />
+      <File FileName="Assets\Scripts\UI\InGame.cs" Line="54" Column="32" />
       <File FileName="Assets\Scripts\Controller\GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Controller\PopupController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Controller\PopupController.cs" Line="49" Column="19" />
       <File FileName="Assets\Scripts\UI\GameOver.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
