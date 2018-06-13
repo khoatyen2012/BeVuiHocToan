@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\Controller\PopupController.cs" />
      <Compile Include="Assets\Scripts\Move\ConLac.cs" />
      <Compile Include="Assets\Scripts\Move\MoveGitfBox.cs" />
+     <Compile Include="Assets\Scripts\Move\MoveSun.cs" />
      <Compile Include="Assets\Scripts\Move\MoveUp.cs" />
      <Compile Include="Assets\Scripts\Move\TapTap.cs" />
      <Compile Include="Assets\Scripts\Move\Zoom.cs" />

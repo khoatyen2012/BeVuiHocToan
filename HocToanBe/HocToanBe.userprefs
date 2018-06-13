@@ -2,12 +2,11 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\InGame.cs">
     <Files>
-      <File FileName="Assets\Scripts\Move\ZoomMove.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Move\Zoom.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\InGame.cs" Line="54" Column="32" />
+      <File FileName="Assets\Scripts\UI\InGame.cs" Line="396" Column="62" />
       <File FileName="Assets\Scripts\Controller\GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Controller\PopupController.cs" Line="49" Column="19" />
-      <File FileName="Assets\Scripts\UI\GameOver.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Controller\PopupController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Move\ConLac.cs" Line="64" Column="2" />
+      <File FileName="Assets\Scripts\Move\MoveSun.cs" Line="66" Column="21" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

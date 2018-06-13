@@ -41,6 +41,7 @@ public class InGame : MonoBehaviour {
 
 	public int mSub=0;
 	public tk2dSprite mBG;
+	public TapTap tap;
 
 	public void setBGdata()
 	{
@@ -53,6 +54,9 @@ public class InGame : MonoBehaviour {
 		} else {
 			mBG.SetSprite ("bgdonghoa");
 		}
+		this.transform.GetChild (11).gameObject.SetActive (true);
+		this.transform.GetChild (11).GetComponent<MoveSun> ().setMove ();
+
 	}
 
     public void setData()
@@ -231,7 +235,15 @@ public class InGame : MonoBehaviour {
 	{
 		yield return new WaitForSeconds (time);
 		DD.setMove ();
-
+		if (GameController.instance.mLevel < 2) {
+			StartCoroutine (WaitTimeTapTap (1.3f));
+		}
+	}
+	IEnumerator WaitTimeTapTap(float time)
+	{
+		yield return new WaitForSeconds (time);
+		tap.gameObject.SetActive (true);
+		tap.setMove ();
 	}
 
 	// Use this for initialization
@@ -278,6 +290,8 @@ public class InGame : MonoBehaviour {
 
 				dd.position = new Vector3 (dd.position.x,dd.position.y,dd.position.z-5);
 				startPostionD = dd.position;
+
+
 			}
 
 
@@ -289,6 +303,9 @@ public class InGame : MonoBehaviour {
 				// Move object across XY plane
 
 				dd.Translate (touchDeltaPosition.x * speed, touchDeltaPosition.y * speed, 0f);
+				if (GameController.instance.mLevel < 2) {
+					tap.gameObject.SetActive (false);
+				}
 			}
 
 			} else if (Input.touchCount != 0 && Input.GetTouch (0).phase
@@ -373,6 +390,11 @@ public class InGame : MonoBehaviour {
 		if (GameController.instance.mLevel > 14) {
 			resetCloud ();
 			GameController.instance.currentState = GameController.State.GAMEOVER;
+
+
+			this.transform.GetChild (11).GetComponent<MoveSun> ().setStop ();
+			this.transform.GetChild (11).gameObject.SetActive (false);
+
             PopupController.instance.HideInGame();
             PopupController.instance.ShowGameOver();
 		} else {
