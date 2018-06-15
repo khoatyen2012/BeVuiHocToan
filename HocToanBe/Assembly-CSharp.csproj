@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\UI\InGame.cs" />
      <Compile Include="Assets\Scripts\UI\MainNumber.cs" />
      <Compile Include="Assets\Scripts\UI\MainOperator.cs" />
+     <Compile Include="Assets\Scripts\UI\NextGame.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCamera.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCameraAnchor.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCameraUtil.cs" />

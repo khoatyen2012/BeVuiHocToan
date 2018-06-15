@@ -27,6 +27,20 @@ public class PopupController : MonoBehaviour {
 
     public InGame inGame;
 	public GameOver gameover;
+	public NextGame nextgame;
+
+	public void ShowNextGame()
+	{
+
+		nextgame.transform.position = new Vector3(nextgame.transform.position.x, showY, nextgame.transform.position.z);
+		nextgame.setZoomAdd ();
+	}
+
+	public void HideNextGame()
+	{
+		nextgame.setZoomSub ();
+		nextgame.transform.position = new Vector3(nextgame.transform.position.x, hideY, nextgame.transform.position.z);
+	}
 
 	public void ShowGameOver()
 	{

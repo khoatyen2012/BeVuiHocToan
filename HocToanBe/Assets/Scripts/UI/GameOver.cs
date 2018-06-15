@@ -5,7 +5,7 @@ public class GameOver : MonoBehaviour {
 
 
 	public tk2dUIItem btnHome;
-	public tk2dUIItem btnResul;
+
 	public tk2dSprite star;
 
 	public float distance;
@@ -39,27 +39,18 @@ public class GameOver : MonoBehaviour {
 
 	public void btnHome_OnClick()
 	{
-        GameController.instance.mLevel = 0;
-		GameController.instance.mStar = 45;
+    
         PopupController.instance.HideGameOver();
-        PopupController.instance.ShowMainOperator();
+		PopupController.instance.ShowNextGame ();
 	}
-	public void btnResul_OnClick()
-	{
-        GameController.instance.mLevel = 0;
-		GameController.instance.mStar = 45;
-        PopupController.instance.HideGameOver();
-        PopupController.instance.ShowInGame();
-      
 
-	}
 
 
 
 	// Use this for initialization
 	void Start () {
 		btnHome.OnClick += btnHome_OnClick;
-		btnResul.OnClick += btnResul_OnClick;
+	
 	}
 	
 	// Update is called once per frame
