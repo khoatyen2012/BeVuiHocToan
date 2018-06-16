@@ -34,11 +34,13 @@ public class MainNumber : MonoBehaviour {
 
 	public void btnClose_OnClick()
 	{
+		SoundManager.Instance.PlayAudioCick ();
 		PopupController.instance.HideMainNumber ();
 		PopupController.instance.ShowMainOperator ();
 	}
 	public void btnNext_OnClick()
 	{
+		SoundManager.Instance.PlayAudioCick ();
         PopupController.instance.HideMainNumber();
         PopupController.instance.ShowInGame();
 	}
@@ -63,6 +65,8 @@ public class MainNumber : MonoBehaviour {
 
 	public void setNumber(int pType)
 	{
+		SoundManager.Instance.PlayAudioCick ();
+		
 		GameController.instance.mNumber = pType;
 		btnMuoi.transform.GetChild (0).gameObject.SetActive (false);
 		btnHaiMuoi.transform.GetChild (0).gameObject.SetActive (false);

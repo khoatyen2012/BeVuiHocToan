@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour {
     {
         Application.targetFrameRate = 30;
         QualitySettings.vSyncCount = -1;
+		tienganh = CheckNgonNgu();
     }
 
 	public int mNumber=10;
@@ -28,6 +29,9 @@ public class GameController : MonoBehaviour {
 	public MoveGitfBox gitfBox;
 	public int mLevel=0;
 	public int mStar=45;
+	public int tienganh = 0;
+
+
 
 
 	public enum State
@@ -41,6 +45,21 @@ public class GameController : MonoBehaviour {
 	}
 	public State currentState;
 
+
+
+	public int CheckNgonNgu()
+	{
+
+		string ngonngu = Application.systemLanguage.ToString().ToLower().Trim();
+		if (ngonngu.Equals ("vietnamese")) {
+			return 1;
+		} else if (ngonngu.Equals ("german")) {
+			return 2;
+		} else {
+			return 0;
+		}
+
+	}
 
 	public void setMoveGitfBox()
 	{

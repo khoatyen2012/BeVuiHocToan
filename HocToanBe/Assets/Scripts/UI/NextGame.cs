@@ -41,6 +41,7 @@ public class NextGame : MonoBehaviour {
 		GameController.instance.mStar = 45;
 		PopupController.instance.HideNextGame();
 		PopupController.instance.ShowMainOperator();
+		SoundManager.Instance.PlayAudioCick ();
 	}
 	public void btnResul_OnClick()
 	{
@@ -48,6 +49,7 @@ public class NextGame : MonoBehaviour {
 		GameController.instance.mStar = 45;
 		PopupController.instance.HideNextGame();
 		PopupController.instance.ShowInGame();
+		SoundManager.Instance.PlayAudioCick ();
 
 
 	}

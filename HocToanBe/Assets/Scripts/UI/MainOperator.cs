@@ -22,6 +22,7 @@ public class MainOperator : MonoBehaviour {
 
 	public void ShowNextData(int pNext)
 	{
+		SoundManager.Instance.PlayAudioCick ();
 		GameController.instance.mOperator = pNext;
 		PopupController.instance.HideMainOperator ();
 		PopupController.instance.ShowMainNumber ();

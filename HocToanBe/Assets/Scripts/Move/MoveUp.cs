@@ -33,6 +33,7 @@ public class MoveUp : MonoBehaviour {
 		}
 		this.transform.localPosition = new Vector3 (this.transform.localPosition.x, stopY, this.transform.localPosition.z);
 		GameController.instance.currentState = GameController.State.INGAME;
+		SoundManager.Instance.PlayAudioDD();
 	}
 
 	// Use this for initialization

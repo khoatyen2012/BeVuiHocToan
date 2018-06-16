@@ -36,6 +36,7 @@ public class InGame : MonoBehaviour {
     List<int> tmg;
 
 	public tk2dUIItem btnContinute;
+	public tk2dUIItem btnGiftAd;
 	public tk2dTextMesh txtLevel;
 
 
@@ -215,20 +216,23 @@ public class InGame : MonoBehaviour {
 
        
 
-        StartCoroutine(WaitTimeC1(0.3f,C1));
-        StartCoroutine(WaitTimeC1(1f, O1));
-        StartCoroutine(WaitTimeC1(1.5f, C2));
-        StartCoroutine(WaitTimeC1(2f, O2));
-        StartCoroutine(WaitTimeC1(3f, C3));
+		StartCoroutine(WaitTimeC1(0.3f,C1,true));
+		StartCoroutine(WaitTimeC1(1f, O1,false));
+		StartCoroutine(WaitTimeC1(1.5f, C2,true));
+		StartCoroutine(WaitTimeC1(2f, O2,false));
+		StartCoroutine(WaitTimeC1(3f, C3,true));
 		StartCoroutine(WaitTimeDD(4.2f));
 
 
     }
 
-    IEnumerator WaitTimeC1(float time,Transform pC)
+	IEnumerator WaitTimeC1(float time,Transform pC,bool pCheckAu)
     {
         yield return new WaitForSeconds(time);
         pC.GetComponent<Zoom>().setZoom();
+		if (pCheckAu) {
+			SoundManager.Instance.PlayAudioMath ();
+		}
     }
 
 	IEnumerator WaitTimeDD(float time)
@@ -251,7 +255,13 @@ public class InGame : MonoBehaviour {
 
 
 		btnContinute.OnClick+=btnContinute_OnClick;
+		btnGiftAd.OnClick += btnGiftAd_OnClick;
 
+	}
+
+	public void btnGiftAd_OnClick()
+	{
+		
 	}
 
 	public float speed;
@@ -322,9 +332,12 @@ public class InGame : MonoBehaviour {
 						dd.position = C3.position;
 						if (dd.GetComponent<Cloud> ().mGiaTri == mKq) {
 
+							SoundManager.Instance.PlayAudioWin ();
 							setZoomSub ();
 							StartCoroutine (WaitTimeMoveGiftBox (0.5f));
 							StartCoroutine (WaitTimeShowContinute (2.5f));
+
+
 
 						} else {
 							dd.GetChild (2).gameObject.SetActive (true);
@@ -334,6 +347,7 @@ public class InGame : MonoBehaviour {
 							dd.GetComponent<Cloud> ().checkState = false;
 							mSub++;
 							GameController.instance.mStar -= mSub;
+							SoundManager.Instance.PlayAudioOver ();
 						}
 					} else {
 						Vector3 positionTouch = Camera.main.ScreenToWorldPoint (Input.mousePosition);
@@ -380,7 +394,9 @@ public class InGame : MonoBehaviour {
         resetCloud();
         GameController.instance.currentState = GameController.State.START;
         btnContinute.gameObject.SetActive(false);
+		btnGiftAd.gameObject.SetActive (false);
         setData();
+	
     }
 
 
@@ -398,7 +414,11 @@ public class InGame : MonoBehaviour {
             PopupController.instance.HideInGame();
             PopupController.instance.ShowGameOver();
 		} else {
+			if (GameController.instance.tienganh == 1) {
+				SoundManager.Instance.PlayAudioWinVN ();
+			}
 			btnContinute.gameObject.SetActive (true);
+			btnGiftAd.gameObject.SetActive (true);
 		}
 	}
 
@@ -406,6 +426,7 @@ public class InGame : MonoBehaviour {
 	{
 		yield return new WaitForSeconds (time);
 		GameController.instance.setMoveGitfBox ();
+
 	}
 
 	public void setZoomSub()
