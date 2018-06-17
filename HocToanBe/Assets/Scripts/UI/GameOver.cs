@@ -66,6 +66,7 @@ public class GameOver : MonoBehaviour {
 			{
 				curentState = State.IDLE;
 				this.transform.localScale = new Vector3(1f, 1f,  this.transform.localScale.z);
+                SoundManager.Instance.PlayAudioDD();
 			}
 		}
 	}
