@@ -6,6 +6,7 @@ public class NextGame : MonoBehaviour {
 
 	public tk2dUIItem btnHome;
 	public tk2dUIItem btnResul;
+	public tk2dUIItem btnMath;
 
 	public float distance;
 
@@ -33,6 +34,12 @@ public class NextGame : MonoBehaviour {
 	void Start () {
 		btnHome.OnClick += btnHome_OnClick;
 		btnResul.OnClick += btnResul_OnClick;
+		btnMath.OnClick += btnMath_OnClick;
+	}
+
+	public void btnMath_OnClick()
+	{
+		ShareRate.RateMath ();
 	}
 
 	public void btnHome_OnClick()
