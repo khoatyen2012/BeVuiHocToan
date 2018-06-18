@@ -107,7 +107,7 @@ public class PopupController : MonoBehaviour {
 
 	public void ShowMainOperator()
 	{
-		
+        mainOperator.setData();
 		mainOperator.transform.position = new Vector3(mainOperator.transform.position.x, showY, mainOperator.transform.position.z);
 	}
 
