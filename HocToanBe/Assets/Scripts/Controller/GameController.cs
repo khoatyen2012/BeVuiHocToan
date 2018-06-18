@@ -35,7 +35,8 @@ public class GameController : MonoBehaviour {
 
 
 	public enum State
-	{
+	{    
+		AWAKE,
 		START,
 		LOADZOOM,
 		END,
@@ -66,9 +67,17 @@ public class GameController : MonoBehaviour {
 		gitfBox.setMove ();
 	}
 
+	IEnumerator WaitTimeSHA(float time)
+	{
+		yield return new WaitForSeconds (time);
+		PopupController.instance.HideSha ();
+		//currentState = State.START;
+	}
+
 	// Use this for initialization
 	void Start () {
 		mLevel=0;
+		StartCoroutine (WaitTimeSHA (3f));
 	}
 	
 	// Update is called once per frame

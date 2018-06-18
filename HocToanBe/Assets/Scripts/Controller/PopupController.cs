@@ -29,6 +29,30 @@ public class PopupController : MonoBehaviour {
 	public GameOver gameover;
 	public NextGame nextgame;
 
+	public GameObject sha;
+
+
+
+	IEnumerator ieMoveUp(GameObject popup)
+	{
+		while (popup.transform.position.y < hideY)
+		{
+			popup.transform.position += Vector3.up
+				* 1300
+				* Time.deltaTime;
+			yield return 0;
+		}
+		GameController.instance.currentState = GameController.State.START;
+	}
+
+
+
+	public void HideSha()
+	{
+		StartCoroutine (ieMoveUp (sha));
+		//sha.transform.position = new Vector3(sha.transform.position.x, hideY, sha.transform.position.z);
+	}
+
 	public void ShowNextGame()
 	{
 

@@ -22,10 +22,12 @@ public class MainOperator : MonoBehaviour {
 
 	public void ShowNextData(int pNext)
 	{
-		SoundManager.Instance.PlayAudioCick ();
-		GameController.instance.mOperator = pNext;
-		PopupController.instance.HideMainOperator ();
-		PopupController.instance.ShowMainNumber ();
+		if (GameController.instance.currentState != GameController.State.AWAKE) {
+			SoundManager.Instance.PlayAudioCick ();
+			GameController.instance.mOperator = pNext;
+			PopupController.instance.HideMainOperator ();
+			PopupController.instance.ShowMainNumber ();
+		}
 
 	}
 	// Use this for initialization
