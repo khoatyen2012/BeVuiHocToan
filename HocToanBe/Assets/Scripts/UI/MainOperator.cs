@@ -7,6 +7,7 @@ public class MainOperator : MonoBehaviour {
 	public tk2dUIItem btnSub;
 	public tk2dUIItem btnAddSub;
     public tk2dUIItem btnShare;
+	public tk2dUIItem btnRate;
 
 	public void btnAdd_OnClick()
 	{
@@ -25,6 +26,11 @@ public class MainOperator : MonoBehaviour {
     {
         ShareRate.Share();
     }
+
+	public void btnRate_OnClick()
+	{
+		ShareRate.Rate ();
+	}
 
 	public void ShowNextData(int pNext)
 	{
@@ -53,6 +59,7 @@ public class MainOperator : MonoBehaviour {
 		btnSub.OnClick += btnSub_OnClick;
 		btnAddSub.OnClick += btnAddSub_OnClick;
         btnShare.OnClick += btnShare_OnClick;
+		btnRate.OnClick += btnRate_OnClick;
         this.transform.GetChild(4).GetComponent<MoveSun>().setMove();
 	}
 	
