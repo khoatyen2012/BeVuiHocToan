@@ -69,6 +69,26 @@ public class SoundManager : MonoBehaviour {
 		}
 	}
 
+	public void PlayAudioChucMung()
+	{
+		int chon = UnityEngine.Random.Range (0, 5);
+		switch(chon)
+		{
+		case 0:
+			tk2dUIAudioManager.Instance.Play (arrAudioClip [10]);
+			break;
+		case 1:
+			tk2dUIAudioManager.Instance.Play (arrAudioClip [11]);
+			break;
+		case 2:
+			tk2dUIAudioManager.Instance.Play (arrAudioClip [12]);
+			break;	
+		default:
+			tk2dUIAudioManager.Instance.Play (arrAudioClip [13]);
+			break;
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
 	

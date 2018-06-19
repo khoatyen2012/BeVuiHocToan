@@ -42,7 +42,11 @@ public class GameOver : MonoBehaviour {
     
         PopupController.instance.HideGameOver();
 		PopupController.instance.ShowNextGame ();
-		SoundManager.Instance.PlayAudioCick ();
+		if (GameController.instance.tienganh == 1) {
+			SoundManager.Instance.PlayAudioChucMung ();
+		} else {
+			SoundManager.Instance.PlayAudioCick ();
+		}
 	}
 
 
