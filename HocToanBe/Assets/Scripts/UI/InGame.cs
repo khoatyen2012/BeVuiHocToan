@@ -37,6 +37,7 @@ public class InGame : MonoBehaviour {
 
 	public tk2dUIItem btnContinute;
 	public tk2dUIItem btnGiftAd;
+	public tk2dUIItem btnBuyItem;
 	public tk2dTextMesh txtLevel;
 
 
@@ -256,6 +257,12 @@ public class InGame : MonoBehaviour {
 
 		btnContinute.OnClick+=btnContinute_OnClick;
 		btnGiftAd.OnClick += btnGiftAd_OnClick;
+		btnBuyItem.OnClick += btnBuyItem_OnClick;
+
+	}
+
+	public void btnBuyItem_OnClick()
+	{
 
 	}
 
@@ -395,6 +402,7 @@ public class InGame : MonoBehaviour {
         GameController.instance.currentState = GameController.State.START;
         btnContinute.gameObject.SetActive(false);
 		btnGiftAd.gameObject.SetActive (false);
+		btnBuyItem.gameObject.SetActive (false);
         setData();
 	
     }
@@ -419,6 +427,7 @@ public class InGame : MonoBehaviour {
 			}
 			btnContinute.gameObject.SetActive (true);
 			btnGiftAd.gameObject.SetActive (true);
+			btnBuyItem.gameObject.SetActive (true);
 		}
 	}
 

@@ -11,6 +11,7 @@ public class MainNumber : MonoBehaviour {
 	public tk2dUIItem btnClose;
 	public tk2dUIItem btnNext;
 	public float distance;
+	public tk2dTextMesh txtTitle;
 
 	public enum State
 	{
@@ -24,6 +25,14 @@ public class MainNumber : MonoBehaviour {
 	public void setZoomAdd()
 	{
 		curentState = State.ZOOM;
+		if (GameController.instance.mOperator == 0) {
+			txtTitle.text = "Addition Game";
+		} else if (GameController.instance.mOperator == 1) {
+			txtTitle.text = "Subtraction Games";
+		} else {
+			txtTitle.text = "Addition/Subtraction";
+		}
+
 	}
 
 	public void setZoomSub()
