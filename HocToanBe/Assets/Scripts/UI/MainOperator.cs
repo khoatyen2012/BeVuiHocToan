@@ -35,6 +35,9 @@ public class MainOperator : MonoBehaviour {
 	public void ShowNextData(int pNext)
 	{
 		if (GameController.instance.currentState != GameController.State.AWAKE) {
+			if (GameController.instance.checkvip != 10) {
+				AdmobManger.Instance.HidewBanner ();
+			}
 
             this.transform.GetChild(4).GetComponent<MoveSun>().setStop();
             this.transform.GetChild(4).gameObject.SetActive(false);
@@ -49,6 +52,11 @@ public class MainOperator : MonoBehaviour {
 
     public void setData()
     {
+		if (GameController.instance.checkvip != 10) {
+			AdmobManger.Instance.RequestBanner ();
+			AdmobManger.Instance.ShowBanner ();
+		}
+		
         this.transform.GetChild(4).gameObject.SetActive(true);
         this.transform.GetChild(4).GetComponent<MoveSun>().setMove();
     }
@@ -61,6 +69,9 @@ public class MainOperator : MonoBehaviour {
         btnShare.OnClick += btnShare_OnClick;
 		btnRate.OnClick += btnRate_OnClick;
         this.transform.GetChild(4).GetComponent<MoveSun>().setMove();
+		if (GameController.instance.checkvip != 10) {
+			AdmobManger.Instance.RequestBanner ();
+		}
 	}
 	
 	// Update is called once per frame

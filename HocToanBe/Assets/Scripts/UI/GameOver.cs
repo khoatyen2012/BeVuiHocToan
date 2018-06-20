@@ -29,6 +29,9 @@ public class GameOver : MonoBehaviour {
 		} else {
 			star.SetSprite ("saomot");
 		}
+		if (GameController.instance.checkvip != 10) {
+			AdmobManger.Instance.LoadAdsInterstitial ();
+		}
 	}
 
 	public void setZoomSub()
@@ -39,7 +42,10 @@ public class GameOver : MonoBehaviour {
 
 	public void btnHome_OnClick()
 	{
-    
+		if (GameController.instance.checkvip != 10) {
+			AdmobManger.Instance.ShowAdsInterstitial ();
+		}
+
         PopupController.instance.HideGameOver();
 		PopupController.instance.ShowNextGame ();
 		if (GameController.instance.tienganh == 1) {

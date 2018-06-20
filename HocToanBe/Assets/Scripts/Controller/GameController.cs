@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour {
 	public int mLevel=0;
 	public int mStar=45;
 	public int tienganh = 0;
-
+	public int checkvip = 0;
 
 
 
@@ -72,6 +72,9 @@ public class GameController : MonoBehaviour {
 		yield return new WaitForSeconds (time);
 		PopupController.instance.HideSha ();
 		//currentState = State.START;
+		if (GameController.instance.checkvip != 10) {
+			AdmobManger.Instance.ShowBanner ();
+		}
 	}
 
 	// Use this for initialization

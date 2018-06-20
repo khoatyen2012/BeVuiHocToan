@@ -268,7 +268,10 @@ public class InGame : MonoBehaviour {
 
 	public void btnGiftAd_OnClick()
 	{
-		
+		//btnBuyItem.gameObject.SetActive (false);
+		if (GameController.instance.checkvip != 10) {
+			AdmobManger.Instance.ShowAdsInterstitial ();
+		}
 	}
 
 	public float speed;
@@ -428,6 +431,10 @@ public class InGame : MonoBehaviour {
 			btnContinute.gameObject.SetActive (true);
 			btnGiftAd.gameObject.SetActive (true);
 			btnBuyItem.gameObject.SetActive (true);
+
+			if (GameController.instance.checkvip != 10) {
+				AdmobManger.Instance.LoadAdsInterstitial ();
+			}
 		}
 	}
 

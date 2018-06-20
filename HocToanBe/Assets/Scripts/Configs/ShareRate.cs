@@ -5,7 +5,7 @@ public class ShareRate
 {
 
 	public static string titleShare = "Math for Kids";
-	public static string LinkShare = "https://play.google.com/store/apps/details?id=toan.violympic.sixth";
+	public static string LinkShare = "https://play.google.com/store/apps/details?id=math.clouds.kids";
 	public static string LinkMath = "https://play.google.com/store/apps/details?id=com.violympic.toanlop1";
 
     public static void Share()
