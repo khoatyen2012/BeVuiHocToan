@@ -263,14 +263,23 @@ public class InGame : MonoBehaviour {
 
 	public void btnBuyItem_OnClick()
 	{
-
+		if (GameController.instance.currentState == GameController.State.END) {
+			if (GameController.instance.checkvip != 10) {
+				PopupController.instance.ShowBuyItem ();
+				GameController.instance.currentState = GameController.State.BUYITEM;
+			} else {
+				ShareRate.RateMath ();
+			}
+		}
 	}
 
 	public void btnGiftAd_OnClick()
 	{
 		//btnBuyItem.gameObject.SetActive (false);
-		if (GameController.instance.checkvip != 10) {
-			AdmobManger.Instance.ShowAdsInterstitial ();
+		if (GameController.instance.currentState == GameController.State.END) {
+			if (GameController.instance.checkvip != 10) {
+				AdmobManger.Instance.ShowAdsInterstitial ();
+			}
 		}
 	}
 
@@ -401,12 +410,14 @@ public class InGame : MonoBehaviour {
 
     public void btnContinute_OnClick()
     {
-        resetCloud();
-        GameController.instance.currentState = GameController.State.START;
-        btnContinute.gameObject.SetActive(false);
-		btnGiftAd.gameObject.SetActive (false);
-		btnBuyItem.gameObject.SetActive (false);
-        setData();
+		if (GameController.instance.currentState == GameController.State.END) {
+			resetCloud ();
+			GameController.instance.currentState = GameController.State.START;
+			btnContinute.gameObject.SetActive (false);
+			btnGiftAd.gameObject.SetActive (false);
+			btnBuyItem.gameObject.SetActive (false);
+			setData ();
+		}
 	
     }
 

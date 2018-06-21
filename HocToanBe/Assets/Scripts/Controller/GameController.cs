@@ -42,6 +42,7 @@ public class GameController : MonoBehaviour {
 		END,
 		INGAME,
 		WAIT,
+		BUYITEM,
 		GAMEOVER
 	}
 	public State currentState;

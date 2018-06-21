@@ -30,6 +30,7 @@ public class PopupController : MonoBehaviour {
 	public NextGame nextgame;
 
 	public GameObject sha;
+	public GameObject BuyItem;
 
 
 
@@ -43,6 +44,19 @@ public class PopupController : MonoBehaviour {
 			yield return 0;
 		}
 		GameController.instance.currentState = GameController.State.START;
+	}
+
+	public void ShowBuyItem()
+	{
+
+		BuyItem.transform.position = new Vector3(BuyItem.transform.position.x, showY, BuyItem.transform.position.z);
+	
+	}
+
+	public void HideBuyItem()
+	{
+
+		BuyItem.transform.position = new Vector3(BuyItem.transform.position.x, hideY, BuyItem.transform.position.z);
 	}
 
 
