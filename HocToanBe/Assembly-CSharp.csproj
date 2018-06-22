@@ -84,6 +84,7 @@
      <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\MonoPInvokeCallbackAttribute.cs" />
      <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\RewardBasedVideoAdClient.cs" />
      <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Utils.cs" />
+     <Compile Include="Assets\Scripts\Configs\ClsLanguage.cs" />
      <Compile Include="Assets\Scripts\Configs\Config.cs" />
      <Compile Include="Assets\Scripts\Configs\ShareRate.cs" />
      <Compile Include="Assets\Scripts\Controller\GameController.cs" />
@@ -233,29 +234,29 @@
  <Reference Include="UnityStore">
  <HintPath>E:/CKH/UnityProject/BeVuiHocToan/HocToanBe/Assets/Plugins/UnityChannel/UnityStore.dll</HintPath>
  </Reference>
+ <Reference Include="Editor">
+ <HintPath>E:/CKH/UnityProject/BeVuiHocToan/HocToanBe/Assets/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Purchasing.Common">
+ <HintPath>E:/CKH/UnityProject/BeVuiHocToan/HocToanBe/Assets/Plugins/UnityPurchasing/Bin/Purchasing.Common.dll</HintPath>
+ </Reference>
+ <Reference Include="Stores">
+ <HintPath>E:/CKH/UnityProject/BeVuiHocToan/HocToanBe/Assets/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
+ </Reference>
+ <Reference Include="Apple">
+ <HintPath>E:/CKH/UnityProject/BeVuiHocToan/HocToanBe/Assets/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
+ </Reference>
  <Reference Include="FacebookStore">
  <HintPath>E:/CKH/UnityProject/BeVuiHocToan/HocToanBe/Assets/Plugins/UnityPurchasing/Bin/Facebook/FacebookStore.dll</HintPath>
  </Reference>
  <Reference Include="Security">
  <HintPath>E:/CKH/UnityProject/BeVuiHocToan/HocToanBe/Assets/Plugins/UnityPurchasing/Bin/Security/live/Security.dll</HintPath>
  </Reference>
- <Reference Include="Purchasing.Common">
- <HintPath>E:/CKH/UnityProject/BeVuiHocToan/HocToanBe/Assets/Plugins/UnityPurchasing/Bin/Purchasing.Common.dll</HintPath>
- </Reference>
- <Reference Include="Apple">
- <HintPath>E:/CKH/UnityProject/BeVuiHocToan/HocToanBe/Assets/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
- </Reference>
- <Reference Include="Stores">
- <HintPath>E:/CKH/UnityProject/BeVuiHocToan/HocToanBe/Assets/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
- </Reference>
  <Reference Include="Tizen">
  <HintPath>E:/CKH/UnityProject/BeVuiHocToan/HocToanBe/Assets/Plugins/UnityPurchasing/Bin/Tizen/Tizen.dll</HintPath>
  </Reference>
  <Reference Include="winrt">
  <HintPath>E:/CKH/UnityProject/BeVuiHocToan/HocToanBe/Assets/Plugins/UnityPurchasing/winrt/winrt.dll</HintPath>
- </Reference>
- <Reference Include="Editor">
- <HintPath>E:/CKH/UnityProject/BeVuiHocToan/HocToanBe/Assets/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

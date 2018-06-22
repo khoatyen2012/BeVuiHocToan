@@ -28,7 +28,8 @@ public class AdmobManger : MonoBehaviour {
 		// Initialize an InterstitialAd.
 		interstitial = new InterstitialAd(Config.adsInID);
 		// Create an empty ad request.
-		AdRequest requestIN = new AdRequest.Builder().AddTestDevice(AdRequest.TestDeviceSimulator).TagForChildDirectedTreatment(true).AddExtra("is_designed_for_families", "true").Build();
+		//AdRequest requestIN = new AdRequest.Builder().TagForChildDirectedTreatment(true).AddExtra("is_designed_for_families", "true").Build();
+		AdRequest requestIN = new AdRequest.Builder().Build();
 		// Load the interstitial with the request.
 		interstitial.LoadAd(requestIN);
 	}
@@ -54,7 +55,9 @@ public class AdmobManger : MonoBehaviour {
 	{
 		bannerView = new BannerView(Config.adsID, AdSize.Banner, AdPosition.TopLeft);
 		// Create an empty ad request.
-		AdRequest request = new AdRequest.Builder().TagForChildDirectedTreatment(true).AddExtra("is_designed_for_families", "true").Build();
+		//AdRequest request = new AdRequest.Builder().TagForChildDirectedTreatment(true).AddExtra("is_designed_for_families", "true").Build();
+
+		AdRequest request = new AdRequest.Builder().Build();
 
 		// Load the banner with the request.
 		bannerView.LoadAd(request);

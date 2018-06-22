@@ -5,6 +5,7 @@ public class BuyItem : MonoBehaviour {
 	
 	public tk2dUIItem btnBuy;
 	public tk2dUIItem btnCancel;
+	public tk2dTextMesh txtContent;
 	// Use this for initialization
 
 	public void btnBuy_OnClick()
@@ -20,6 +21,7 @@ public class BuyItem : MonoBehaviour {
 	void Start () {
 		btnBuy.OnClick += btnBuy_OnClick;
 		btnCancel.OnClick += btnCancel_OnClick;
+		txtContent.text = "" + ClsLanguage.doBuyVip ();
 	}
 	
 	// Update is called once per frame

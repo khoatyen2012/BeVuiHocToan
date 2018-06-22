@@ -279,6 +279,9 @@ public class InGame : MonoBehaviour {
 		if (GameController.instance.currentState == GameController.State.END) {
 			if (GameController.instance.checkvip != 10) {
 				AdmobManger.Instance.ShowAdsInterstitial ();
+			}else
+			{
+				ShareRate.RateMath ();
 			}
 		}
 	}
