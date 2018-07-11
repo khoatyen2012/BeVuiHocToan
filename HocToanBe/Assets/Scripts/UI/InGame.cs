@@ -376,6 +376,13 @@ public class InGame : MonoBehaviour {
 						StartCoroutine(WaitTimeMove(0f,positionTouch));
 					}
 
+					if(dd!=null && IsVisibleToCamera(dd) == false)
+					{
+						dd.position = new Vector3 (startPostionD.x,startPostionD.y,startPostionD.z+5);
+						dd = null;
+						GameController.instance.currentState = GameController.State.INGAME;
+					}
+
 				
 				}
 			}
@@ -472,6 +479,12 @@ public class InGame : MonoBehaviour {
 			d1.GetComponent<ZoomSub> ().setZoom ();
 			d2.GetComponent<ZoomSub> ().setZoom ();			
 		}
+	}
+
+	public bool IsVisibleToCamera(Transform transform)
+	{
+		Vector3 visTest = Camera.main.WorldToViewportPoint(transform.position);
+		return (visTest.x >= -0.01 && visTest.y >= 0) && (visTest.x <= 1.1 && visTest.y <= 1.1);
 	}
 
 	IEnumerator WaitTimeMove(float time,Vector3 positionTouch )
