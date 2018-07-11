@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class ShareRate
 {
@@ -10,6 +11,12 @@ public class ShareRate
 
     public static void Share()
     {
+#if UNITY_IPHONE
+string facebookshare = "https://www.facebook.com/sharer/sharer.php?u=" + Uri.EscapeUriString(appStoreLink);
+Application.OpenURL(facebookshare);
+
+
+#endif
         //execute the below lines if being run on a Android device
 #if UNITY_ANDROID
         //Refernece of AndroidJavaClass class for intent
