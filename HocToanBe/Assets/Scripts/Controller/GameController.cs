@@ -19,9 +19,17 @@ public class GameController : MonoBehaviour {
 
     void Awake()
     {
+		try
+		{
         Application.targetFrameRate = 30;
         QualitySettings.vSyncCount = -1;
 		tienganh = CheckNgonNgu();
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
     }
 
 	public int mNumber=10;

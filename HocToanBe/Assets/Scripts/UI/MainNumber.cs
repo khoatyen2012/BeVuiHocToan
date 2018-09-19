@@ -43,15 +43,31 @@ public class MainNumber : MonoBehaviour {
 
 	public void btnClose_OnClick()
 	{
+		try
+		{
 		SoundManager.Instance.PlayAudioCick ();
 		PopupController.instance.HideMainNumber ();
 		PopupController.instance.ShowMainOperator ();
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
 	}
 	public void btnNext_OnClick()
 	{
+		try
+		{
 		SoundManager.Instance.PlayAudioCick ();
         PopupController.instance.HideMainNumber();
         PopupController.instance.ShowInGame();
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
 	}
 
 
@@ -74,6 +90,8 @@ public class MainNumber : MonoBehaviour {
 
 	public void setNumber(int pType)
 	{
+		try
+		{
 		SoundManager.Instance.PlayAudioCick ();
 		
 		GameController.instance.mNumber = pType;
@@ -96,18 +114,32 @@ public class MainNumber : MonoBehaviour {
 			btnTram.transform.GetChild (0).gameObject.SetActive (true);
 			break;
 		}
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
 	}
 
 
 	// Use this for initialization
 	void Start () {
 
+		try
+		{
 		btnMuoi.OnClick += btnMuoi_OnClick;
 		btnHaiMuoi.OnClick += btnHaiMuoi_OnClick;
 		btnNamMuoi.OnClick += btnNamMuoi_OnClick;
 		btnTram.OnClick += btnTram_OnClick;
 		btnClose.OnClick += btnClose_OnClick;
 		btnNext.OnClick += btnNext_OnClick;
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
 	
 	}
 	

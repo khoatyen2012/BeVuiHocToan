@@ -11,25 +11,65 @@ public class MainOperator : MonoBehaviour {
 
 	public void btnAdd_OnClick()
 	{
+		try
+		{
 		ShowNextData (0);
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
 	}
 	public void btnSub_OnClick()
 	{
+		try
+		{
 		ShowNextData (1);
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
 	}
 	public void btnAddSub_OnClick()
 	{
+		try
+		{
 		ShowNextData (2);
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
 	}
 
     public void btnShare_OnClick()
     {
+		try
+		{
         ShareRate.Share();
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
     }
 
 	public void btnRate_OnClick()
 	{
+		try
+		{
 		ShareRate.Rate ();
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
 	}
 
 	public void ShowNextData(int pNext)
@@ -52,6 +92,8 @@ public class MainOperator : MonoBehaviour {
 
     public void setData()
     {
+		try
+		{
 		if (GameController.instance.checkvip != 10) {
 			AdmobManger.Instance.RequestBanner ();
 			AdmobManger.Instance.ShowBanner ();
@@ -59,10 +101,18 @@ public class MainOperator : MonoBehaviour {
 		
         this.transform.GetChild(4).gameObject.SetActive(true);
         this.transform.GetChild(4).GetComponent<MoveSun>().setMove();
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
     }
 	// Use this for initialization
 	void Start () {
 	
+		try
+		{
 		btnAdd.OnClick += btnAdd_OnClick;
 		btnSub.OnClick += btnSub_OnClick;
 		btnAddSub.OnClick += btnAddSub_OnClick;
@@ -71,6 +121,12 @@ public class MainOperator : MonoBehaviour {
         this.transform.GetChild(4).GetComponent<MoveSun>().setMove();
 		if (GameController.instance.checkvip != 10) {
 			AdmobManger.Instance.RequestBanner ();
+		}
+		}
+		catch (System.Exception)
+		{
+
+			throw;
 		}
 	}
 	

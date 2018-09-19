@@ -42,6 +42,8 @@ public class GameOver : MonoBehaviour {
 
 	public void btnHome_OnClick()
 	{
+		try
+		{
 		if (GameController.instance.checkvip != 10) {
 			AdmobManger.Instance.ShowAdsInterstitial ();
 		}
@@ -52,6 +54,12 @@ public class GameOver : MonoBehaviour {
 			SoundManager.Instance.PlayAudioChucMung ();
 		} else {
 			SoundManager.Instance.PlayAudioCick ();
+		}
+		}
+		catch (System.Exception)
+		{
+
+			throw;
 		}
 	}
 

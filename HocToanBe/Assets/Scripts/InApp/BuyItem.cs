@@ -10,18 +10,42 @@ public class BuyItem : MonoBehaviour {
 
 	public void btnBuy_OnClick()
 	{
+		try
+		{
 		IAPManager.instance.BuyVipLevel();
 		SoundManager.Instance.PlayAudioCick ();
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
 	}
 	public void btnCancel_OnClick()
 	{
+		try
+		{
 		PopupController.instance.HideBuyItem ();
 		GameController.instance.currentState = GameController.State.END;
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
 	}
 	void Start () {
+		try
+		{
 		btnBuy.OnClick += btnBuy_OnClick;
 		btnCancel.OnClick += btnCancel_OnClick;
 		txtContent.text = "" + ClsLanguage.doBuyVip ();
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
 	}
 	
 	// Update is called once per frame

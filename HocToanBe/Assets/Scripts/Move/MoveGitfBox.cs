@@ -12,18 +12,34 @@ public class MoveGitfBox : MonoBehaviour {
 
 	public void setStartPosition()
 	{
+		try
+		{
 		this.gameObject.SetActive (false);
 		this.transform.localPosition = startPosition;
 		foreach (Transform child in this.transform) {
 			child.GetComponent<ConLac> ().setStartPosition ();
+		}
+		}
+		catch (System.Exception)
+		{
+
+			throw;
 		}
 	}
 
 
 	public void setMove()
 	{
+		try
+		{
 		this.gameObject.SetActive (true);
 		StartCoroutine(ieMoveUp());
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
 	}
 
 	IEnumerator ieMoveUp()

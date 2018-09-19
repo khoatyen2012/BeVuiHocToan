@@ -47,6 +47,8 @@ public class InGame : MonoBehaviour {
 
 	public void setBGdata()
 	{
+		try
+		{
 		setData ();
 		int tChon = UnityEngine.Random.Range (0, 4);
 		if (tChon == 0) {
@@ -58,6 +60,12 @@ public class InGame : MonoBehaviour {
 		}
 		this.transform.GetChild (11).gameObject.SetActive (true);
 		this.transform.GetChild (11).GetComponent<MoveSun> ().setMove ();
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
 
 	}
 
@@ -254,15 +262,24 @@ public class InGame : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-
+		try
+		{
 		btnContinute.OnClick+=btnContinute_OnClick;
 		btnGiftAd.OnClick += btnGiftAd_OnClick;
 		btnBuyItem.OnClick += btnBuyItem_OnClick;
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
 
 	}
 
 	public void btnBuyItem_OnClick()
 	{
+		try
+		{
 		if (GameController.instance.currentState == GameController.State.END) {
 			if (GameController.instance.checkvip != 10) {
 				PopupController.instance.ShowBuyItem ();
@@ -271,10 +288,18 @@ public class InGame : MonoBehaviour {
 				ShareRate.RateMath ();
 			}
 		}
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
 	}
 
 	public void btnGiftAd_OnClick()
 	{
+		try
+		{
 		//btnBuyItem.gameObject.SetActive (false);
 		if (GameController.instance.currentState == GameController.State.END) {
 			if (GameController.instance.checkvip != 10) {
@@ -283,6 +308,12 @@ public class InGame : MonoBehaviour {
 			{
 				ShareRate.RateMath ();
 			}
+		}
+		}
+		catch (System.Exception)
+		{
+
+			throw;
 		}
 	}
 
@@ -420,6 +451,8 @@ public class InGame : MonoBehaviour {
 
     public void btnContinute_OnClick()
     {
+		try
+		{
 		if (GameController.instance.currentState == GameController.State.END) {
 			resetCloud ();
 			GameController.instance.currentState = GameController.State.START;
@@ -427,6 +460,12 @@ public class InGame : MonoBehaviour {
 			btnGiftAd.gameObject.SetActive (false);
 			btnBuyItem.gameObject.SetActive (false);
 			setData ();
+		}
+		}
+		catch (System.Exception)
+		{
+
+			throw;
 		}
 	
     }

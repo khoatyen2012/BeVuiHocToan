@@ -32,32 +32,63 @@ public class NextGame : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		try
+		{
 		btnHome.OnClick += btnHome_OnClick;
 		btnResul.OnClick += btnResul_OnClick;
 		btnMath.OnClick += btnMath_OnClick;
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
 	}
 
 	public void btnMath_OnClick()
 	{
+		try
+		{
 		ShareRate.RateMath ();
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
 	}
 
 	public void btnHome_OnClick()
 	{
+		try
+		{
 		GameController.instance.mLevel = 0;
 		GameController.instance.mStar = 45;
 		PopupController.instance.HideNextGame();
 		PopupController.instance.ShowMainOperator();
 		SoundManager.Instance.PlayAudioCick ();
+		}
+		catch (System.Exception)
+		{
+
+			throw;
+		}
 	}
 	public void btnResul_OnClick()
 	{
+		try
+		{
 		GameController.instance.mLevel = 0;
 		GameController.instance.mStar = 45;
 		PopupController.instance.HideNextGame();
 		PopupController.instance.ShowInGame();
 		SoundManager.Instance.PlayAudioCick ();
+		}
+		catch (System.Exception)
+		{
 
+			throw;
+		}
 
 	}
 	
